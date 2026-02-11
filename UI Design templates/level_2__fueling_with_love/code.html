@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Fueling with Love - Level 2</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,400;0,700;1,800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#f98806",
+                        "background-light": "#f8f7f5",
+                        "background-dark": "#231a0f",
+                    },
+                    fontFamily: {
+                        "display": ["Be Vietnam Pro", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .f1-skew { transform: skew(-10deg); }
+        .gauge-gradient {
+            background: conic-gradient(from 180deg at 50% 100%, #f98806 0deg, #f98806 180deg, #e5e7eb 180deg);
+        }
+        .scanline {
+            background: linear-gradient(to bottom, transparent 50%, rgba(249, 136, 6, 0.05) 51%);
+            background-size: 100% 4px;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 min-h-screen overflow-hidden selection:bg-primary/30">
+<!-- F1 HUD Overlay -->
+<div class="fixed inset-0 pointer-events-none border-[12px] border-primary/10 z-50"></div>
+<div class="fixed inset-0 scanline pointer-events-none z-40 opacity-30"></div>
+<main class="relative h-screen flex flex-col items-center justify-between p-8">
+<!-- Header Section -->
+<header class="w-full max-w-7xl flex justify-between items-start z-30">
+<div class="flex flex-col">
+<div class="flex items-center gap-3">
+<span class="bg-primary text-white px-4 py-1 font-extrabold italic f1-skew text-sm tracking-tighter">LEVEL 02</span>
+<h1 class="text-4xl font-extrabold italic tracking-tighter uppercase text-slate-900 dark:text-white">The Fuel Up</h1>
+</div>
+<p class="mt-2 text-slate-500 font-bold uppercase tracking-widest text-xs">Rapidly shift the pump to fill the tank with love!</p>
+</div>
+<div class="flex flex-col items-end">
+<div class="flex gap-2 mb-2">
+<div class="h-1 w-8 bg-primary"></div>
+<div class="h-1 w-8 bg-primary"></div>
+<div class="h-1 w-8 bg-slate-300"></div>
+</div>
+<div class="text-right">
+<span class="text-xs font-bold text-slate-400 uppercase tracking-tighter">Current Lead</span>
+<div class="text-2xl font-black italic text-primary">0.014s <span class="text-slate-900 dark:text-white">AHEAD</span></div>
+</div>
+</div>
+</header>
+<!-- Main Content Area: The Car and Gauge -->
+<div class="relative flex-1 w-full flex flex-col items-center justify-center">
+<!-- Side Telemetry Panels -->
+<div class="absolute left-0 top-1/2 -translate-y-1/2 flex flex-col gap-6">
+<div class="bg-white/80 dark:bg-background-dark/80 backdrop-blur-md p-4 rounded-lg border-l-4 border-primary shadow-xl w-48">
+<span class="text-[10px] font-black uppercase text-slate-400 tracking-widest">Heart Rate</span>
+<div class="flex items-baseline gap-1">
+<span class="text-3xl font-black italic">180</span>
+<span class="text-sm font-bold text-primary italic uppercase">BPM</span>
+</div>
+</div>
+<div class="bg-white/80 dark:bg-background-dark/80 backdrop-blur-md p-4 rounded-lg border-l-4 border-primary shadow-xl w-48">
+<span class="text-[10px] font-black uppercase text-slate-400 tracking-widest">Grip Level</span>
+<div class="flex items-baseline gap-1">
+<span class="text-3xl font-black italic">ETERNAL</span>
+</div>
+</div>
+</div>
+<div class="absolute right-0 top-1/2 -translate-y-1/2 flex flex-col gap-6">
+<div class="bg-white/80 dark:bg-background-dark/80 backdrop-blur-md p-4 rounded-lg border-r-4 border-primary shadow-xl w-48 text-right">
+<span class="text-[10px] font-black uppercase text-slate-400 tracking-widest">Adrenaline</span>
+<div class="flex items-baseline justify-end gap-1">
+<span class="text-3xl font-black italic text-primary">100</span>
+<span class="text-sm font-bold italic uppercase">%</span>
+</div>
+</div>
+<div class="bg-white/80 dark:bg-background-dark/80 backdrop-blur-md p-4 rounded-lg border-r-4 border-primary shadow-xl w-48 text-right">
+<span class="text-[10px] font-black uppercase text-slate-400 tracking-widest">Lap Progress</span>
+<div class="flex items-baseline justify-end gap-1">
+<span class="text-3xl font-black italic">92</span>
+<span class="text-sm font-bold italic uppercase">%</span>
+</div>
+</div>
+</div>
+<!-- Central Gauge -->
+<div class="relative z-20 mb-[-100px]">
+<div class="w-80 h-40 overflow-hidden relative">
+<!-- Semi-circle Gauge -->
+<div class="absolute inset-0 border-[16px] border-slate-200 dark:border-slate-800 rounded-full"></div>
+<!-- Filled Gauge (Primary Color) -->
+<div class="absolute inset-0 border-[16px] border-primary rounded-full" style="clip-path: inset(0 20% 0 0);"></div>
+<div class="absolute bottom-0 left-1/2 -translate-x-1/2 text-center pb-2">
+<span class="material-icons text-primary text-5xl">favorite</span>
+<div class="text-xs font-black uppercase tracking-widest mt-1">Full Heart</div>
+</div>
+</div>
+<div class="flex justify-between w-full px-4 mt-2">
+<span class="text-[10px] font-black text-slate-400 uppercase">Empty</span>
+<span class="text-[10px] font-black text-primary uppercase">85% Charged</span>
+</div>
+</div>
+<!-- Visual Car Morph Container -->
+<div class="relative w-full max-w-5xl h-96 group">
+<!-- Carbon Black Base Layer -->
+<div class="absolute inset-0 flex items-center justify-center opacity-40 grayscale transition-all duration-700">
+<img class="w-full h-full object-contain filter brightness-50 contrast-125" data-alt="Formula 1 car silhouette in dark carbon fiber finish" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA19HnvXqC7NKU85WT4ZEtKooxr_pJNA-H1jCt_Ve2bfESvXVwm-aFCe7hibscmxCqjS2BsXGkJ0G71jUVDfgJ1SeUSkI6xiEL8jbtagvgEQBseg1izBDJ23Q1vJl8DBauyY9v7AUYS5Zq0kjEf_-Y5YDWzu9l6P3xZv1tiKL1HLzKKYhsAJa6mDDdos69GrDZAYyfiodCHMZKTClXNYY9kz46cr-NgugAwdZg2llIpq2p-fuWnpyH2GYBPbMgiX5c1fnSOVASpa6Y6"/>
+</div>
+<!-- Papaya Orange Overlay -->
+<div class="absolute inset-0 flex items-center justify-center mix-blend-color transition-all duration-700">
+<img class="w-full h-full object-contain" data-alt="Formula 1 car glowing in vibrant Papaya orange color" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAxjcuiR_q0enm-4FH_9uSP1O4_38WBkajcit0iwBxS7tvr3UhjyDrT2CGliq_afjnT9yDIVrHUB5XUWsfY7BMp5lzt8HjPda9h5r7yTQ9AefEpgDcSk-tRD5z5KPwIwTR9zdDkJMKWHlqt47uLoWrZ0l2Rq4jk4b61PUmTLALg8-4w0ic1u3_8mjPPmaXHB8X130ktTD8Exjp63HQrmfTyPAa0Jt_BJ0CrSy9oXCblE5f85etPGjWn2V99lR0s8A7JNgr7fAKRqnlY"/>
+</div>
+<!-- Highlight Glow -->
+<div class="absolute inset-0 bg-primary/20 blur-[120px] rounded-full scale-50 opacity-50"></div>
+</div>
+</div>
+<!-- Pump Control Section -->
+<footer class="w-full max-w-3xl flex flex-col items-center pb-12 z-30">
+<div class="relative">
+<!-- Shifter Button Styling -->
+<div class="absolute -inset-4 bg-primary/20 rounded-full blur-xl animate-pulse"></div>
+<button class="relative w-32 h-32 bg-slate-900 dark:bg-slate-100 rounded-full border-8 border-primary flex flex-col items-center justify-center group active:scale-95 transition-transform">
+<div class="absolute top-2 w-1 h-8 bg-primary rounded-full group-active:translate-y-4 transition-transform"></div>
+<span class="material-icons text-primary text-4xl mt-4">speed</span>
+<span class="text-[10px] font-black uppercase tracking-tighter text-white dark:text-slate-900 mt-1">PUMP</span>
+</button>
+<!-- Floating Particle Concept (Static representation) -->
+<span class="material-icons absolute -top-12 left-1/2 -translate-x-1/2 text-primary text-2xl animate-bounce">favorite</span>
+</div>
+<div class="mt-8 flex items-center gap-12">
+<div class="flex flex-col items-center">
+<span class="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-1">Fuel Type</span>
+<span class="text-sm font-extrabold italic bg-primary/10 text-primary px-3 py-1 rounded">PURE AFFECTION</span>
+</div>
+<div class="h-8 w-px bg-slate-200 dark:bg-slate-800"></div>
+<div class="flex flex-col items-center">
+<span class="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-1">Flow Rate</span>
+<span class="text-sm font-extrabold italic bg-slate-900 dark:bg-slate-700 text-white px-3 py-1 rounded">7.2 LOVE-TERS/SEC</span>
+</div>
+</div>
+</footer>
+<!-- Finish State Button (Hidden by default, shown when full) -->
+<div class="fixed bottom-12 right-12 z-50">
+<button class="bg-primary hover:bg-orange-600 text-white font-black italic uppercase px-8 py-4 rounded-lg shadow-[0_8px_0_0_#c76d05] active:translate-y-1 active:shadow-none transition-all flex items-center gap-3 f1-skew">
+<span>Race to the Finish</span>
+<span class="material-icons">flag</span>
+</button>
+</div>
+</main>
+<!-- Bottom Data Bar -->
+<div class="fixed bottom-0 w-full bg-slate-900 dark:bg-black py-1 px-8 flex justify-between items-center z-50 overflow-hidden">
+<div class="flex gap-8">
+<div class="flex items-center gap-2">
+<span class="text-primary text-[10px] font-black">DRS</span>
+<div class="w-12 h-2 bg-primary"></div>
+</div>
+<div class="flex items-center gap-2">
+<span class="text-slate-400 text-[10px] font-black">ERS</span>
+<div class="w-12 h-2 bg-slate-700"></div>
+</div>
+</div>
+<div class="flex gap-4 items-center">
+<span class="text-white text-[10px] font-mono tracking-widest">PIT_STOP_STATUS: FUELING_IN_PROGRESS</span>
+<span class="text-primary animate-pulse text-[10px] font-black italic">● LIVE TELEMETRY</span>
+</div>
+</div>
+</body></html>

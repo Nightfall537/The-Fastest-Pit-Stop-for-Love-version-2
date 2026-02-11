@@ -1,0 +1,87 @@
+This **Product Requirements Document (PRD)** is optimized for an AI Developer Agent (like a specialized coding assistant) to build your interactive Valentine's game. It includes the logic, assets, and branding necessary for a high-quality "Papaya" finish.
+
+---
+
+# 🏎️ PRD: "The Fastest Pit Stop for Love"
+
+**Version:** 1.0 (Valentine's 2026 Edition)
+
+**Objective:** Create a highly interactive, 3-level web mini-game for a McLaren/Lando Norris fan.
+
+---
+
+## 1. Technical Stack (The "Engine")
+
+To ensure smooth animations and a responsive "app-like" feel, the following stack is required:
+
+* **Framework:** **React (Vite)** for component-based state management.
+* **Animation Engine:** **Framer Motion** (essential for the drag-and-drop physics and level transitions).
+* **Styling:** **Tailwind CSS** (for rapid F1-themed UI styling).
+* **Icons/Assets:** **Lucide-React** for UI icons; **SVGs** for the McLaren MCL38 car and heart-tires.
+* **Audio:** **Web Audio API** for engine sounds and Lando Norris "Team Radio" voice clips.
+
+---
+
+## 2. Branding & Visual Identity
+
+| Element | Specification | Hex/Details |
+| --- | --- | --- |
+| **Primary Color** | McLaren Papaya | `#FF8000` |
+| **Secondary Color** | Anthracite Gray | `#1E1E1E` |
+| **Accent Color** | Speed Blue | `#00A6FF` |
+| **Typography** | Bold Italic Sans-Serif | *Inter* or *Roboto* (Italicized for speed) |
+| **Visual Style** | Glassmorphism | Translucent dark panels with orange borders. |
+
+---
+
+## 3. Game Logic & Levels
+
+### **Level 1: The Tire Swap**
+
+* **Goal:** Attach 4 heart-shaped tires to the car axles.
+* **Logic:** * Initialize `tiresPlaced` state at `0`.
+* Use `framer-motion` `drag` constraints.
+* **Success Condition:** If tire is dropped within 20px of a `DropZone` (axle), snap to position and `tiresPlaced++`.
+* **Feedback:** Trigger "Box, Box! Perfect stop!" text bubble.
+
+
+
+### **Level 2: The Fuel Up**
+
+* **Goal:** Fill the "Love Tank" to 100%.
+* **Logic:**
+* Button click handler increases `fuelLevel` by 5% per click.
+* As `fuelLevel` increases, the car's `CSS filter` transitions from grayscale(100%) to full color (Papaya).
+* **Visual:** A progress bar styled like an F1 fuel telemetry gauge.
+
+
+
+### **Level 3: The Steering Setup**
+
+* **Goal:** Select the date destination on the wheel.
+* **UI:** A 1:1 replica of Lando’s steering wheel screen.
+* **Action:** Clickable buttons. On selection of "[Your Restaurant]", trigger the **F1 Start Lights** animation (5 red lights turning on one by one, then all out).
+
+---
+
+## 4. Functional Requirements for AI Agent
+
+1. **State Management:** Track `currentLevel` (0-3). Transition levels with a "motion blur" effect.
+2. **Responsiveness:** Must be mobile-first (she will likely open it on her phone). Use touch-friendly drag-and-drop.
+3. **Confetti System:** On the final screen, trigger a `canvas-confetti` explosion using `#FF8000` and `#FFFFFF` particles.
+4. **Team Radio:** Include a "Radio" button on the final card that plays your custom Valentine's audio clip.
+
+---
+
+## 5. Final Screen (The Podium)
+
+* **Heading:** `PURPLE SECTOR: NEW RECORD!`
+* **Animation:** A looping Lando Norris GIF/Sprite with heart-champagne.
+* **Copy:** > **PENALTY WARNING:** You’ve exceeded the track limits of my heart!
+> Happy Valentine’s Day to my favorite teammate. You’re the only person I’d share my DRS with. Let’s have a championship-winning year together!
+
+
+
+---
+
+**Next Step:** Would you like me to generate the **Starter Code (App.js)** based on this PRD so you can paste it into a code editor and see it in action?

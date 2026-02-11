@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>The Fastest Pit Stop for Love - Level 1</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#f98806",
+                        "background-light": "#f8f7f5",
+                        "background-dark": "#231a0f",
+                        "carbon": "#1a1a1a",
+                        "racing-gray": "#333333"
+                    },
+                    fontFamily: {
+                        "display": ["Be Vietnam Pro"]
+                    },
+                    borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .drag-handle { cursor: grab; }
+        .drag-handle:active { cursor: grabbing; }
+        .tire-glow { filter: drop-shadow(0 0 8px rgba(249, 136, 6, 0.4)); }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-carbon transition-colors duration-300 min-h-screen overflow-hidden">
+<!-- Top Navigation Bar -->
+<header class="w-full px-8 py-4 flex justify-between items-center bg-white/80 dark:bg-carbon/80 backdrop-blur-md border-b border-primary/10 fixed top-0 z-50">
+<div class="flex items-center gap-4">
+<div class="bg-primary text-white px-4 py-1 rounded-full font-extrabold italic tracking-tighter">
+                MCLAREN LOVE
+            </div>
+<div class="h-6 w-[2px] bg-primary/20"></div>
+<div class="text-sm font-semibold uppercase tracking-widest text-primary/80">Level 1: The Tire Swap</div>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex flex-col items-end">
+<span class="text-[10px] uppercase font-bold text-gray-400">Pit Stop Time</span>
+<span class="font-mono text-xl font-black text-primary">00:12:45</span>
+</div>
+<div class="flex items-center gap-2 bg-primary/10 px-4 py-2 rounded-lg">
+<span class="material-icons text-primary text-lg">favorite</span>
+<span class="font-bold">3 / 4 Tires</span>
+</div>
+</div>
+</header>
+<!-- Main Game Area -->
+<main class="relative w-full h-screen pt-24 pb-48 flex flex-col items-center justify-center overflow-hidden">
+<!-- Garage Background Elements -->
+<div class="absolute inset-0 z-0 opacity-10">
+<div class="absolute top-20 left-10 w-64 h-64 bg-primary rounded-full blur-[100px]"></div>
+<div class="absolute bottom-20 right-10 w-96 h-96 bg-primary/40 rounded-full blur-[120px]"></div>
+</div>
+<!-- The F1 Car Section -->
+<div class="relative w-full max-w-6xl mx-auto flex items-center justify-center z-10">
+<!-- Shadow/Reflections -->
+<div class="absolute bottom-0 w-3/4 h-12 bg-black/20 blur-2xl rounded-full"></div>
+<!-- F1 Chassis -->
+<div class="relative w-full h-96 flex items-center justify-center">
+<img class="w-full h-auto object-contain opacity-90 drop-shadow-2xl grayscale brightness-110 contrast-125" data-alt="Side profile of a sleek Formula 1 car chassis without wheels" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCYlNVwcvgsWoXfcVs9AS50eVloVjailw0sRCq1bkBAoNAO7ntylrLQvgW93oeWEknSWD04RjLtBYJ3mRuuNpvqJRYtjv-JdnDj3-yYFLVTcXjBdpaUMSz6qyfJMMXtAWuM03Pq7dcOoCLzU27vl2SEqzdn4UNjr0FeWF0Kv5aYDnyLF52YhOVKZU7yU7Q2p0HnSVIlrrtrXbnvb6Sqo5e846dh9cFxIb2w8OSBwQjyIHkjRCCNLO0Iyy3NJn6qWiWkmO87F0LYVrL9"/>
+<!-- Target Drop Zones (Front Axle) -->
+<div class="absolute left-[22%] bottom-[12%] w-32 h-32 flex items-center justify-center group">
+<div class="w-24 h-24 border-4 border-dashed border-primary/40 rounded-full animate-pulse flex items-center justify-center">
+<span class="material-icons text-primary/30 text-4xl">favorite</span>
+</div>
+</div>
+<!-- Target Drop Zones (Rear Axle) -->
+<div class="absolute right-[18%] bottom-[10%] w-40 h-40 flex items-center justify-center">
+<div class="w-32 h-32 bg-primary/20 border-4 border-primary rounded-full flex items-center justify-center shadow-[0_0_20px_rgba(249,136,6,0.6)]">
+<!-- Placed Tire Sample -->
+<div class="w-28 h-28 bg-carbon rounded-full border-8 border-racing-gray flex items-center justify-center overflow-hidden relative">
+<div class="absolute inset-0 bg-gradient-to-tr from-primary/20 to-transparent"></div>
+<div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center z-10">
+<span class="material-icons text-white text-xl">favorite</span>
+</div>
+<!-- Tread Pattern -->
+<div class="absolute inset-0 border-[10px] border-dashed border-white/5 rounded-full"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Character Instruction (Lando) -->
+<div class="absolute bottom-40 left-12 flex items-end gap-4 z-20">
+<div class="w-24 h-24 bg-primary/20 rounded-xl overflow-hidden border-2 border-primary">
+<img class="w-full h-full object-cover grayscale brightness-110 contrast-125" data-alt="Stylized portrait of a young cheerful racing driver" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCZ4fWSVW16I0y_mPQaQ1f_thCgJx8dpJHxmYSKQm2f4L0KiY8tD060rfNBy0xapgu8jldI4KvZJb0M42zOoCkOv7mMczgfYB8fVIRcuilXHk9jxgHF_2_bo4HnInQPOKpBfP83Yu3xyaXgpRTZlOMi2XgcZQZHOQqwybgH7TvobaE7-ywc8r0gSsr7x0GKX_bWSdHf2YOW-L-XNJFOjQRmQqJ-kwTTJfsTLkdbXwP2oPgvJ1vVSPl97s8Gi5Ga7u2Gb2uWA0oKQ66J"/>
+</div>
+<div class="bg-white dark:bg-carbon p-5 rounded-tr-2xl rounded-tl-2xl rounded-br-2xl border-2 border-primary/30 shadow-xl max-w-xs relative mb-4">
+<div class="absolute -left-3 bottom-0 w-0 h-0 border-t-[15px] border-t-transparent border-r-[15px] border-r-white dark:border-r-carbon border-b-0"></div>
+<p class="font-bold text-primary mb-1 text-sm uppercase tracking-tight">Lando Norris</p>
+<p class="text-sm leading-tight text-carbon/80 dark:text-white/80">"Box, Box! Perfect stop! Let's get these <span class="text-primary font-bold">Valentine Softs</span> on before the light turns green!"</p>
+</div>
+</div>
+</main>
+<!-- Bottom Inventory / Dock -->
+<footer class="fixed bottom-0 left-0 right-0 p-8 bg-gradient-to-t from-background-light to-transparent dark:from-background-dark z-30">
+<div class="max-w-4xl mx-auto bg-carbon/5 dark:bg-white/5 backdrop-blur-xl rounded-2xl p-6 border border-white/20 shadow-inner">
+<div class="flex justify-around items-center">
+<!-- Tire 1 (Heart Shape Hub) -->
+<div class="drag-handle group relative">
+<div class="w-24 h-24 bg-carbon rounded-full border-4 border-racing-gray flex items-center justify-center hover:scale-110 transition-transform tire-glow">
+<div class="w-8 h-8 bg-primary rotate-45 flex items-center justify-center">
+<!-- Small hack for heart hub -->
+<div class="absolute w-8 h-8 bg-primary rounded-full -top-4"></div>
+<div class="absolute w-8 h-8 bg-primary rounded-full -left-4"></div>
+</div>
+<div class="absolute inset-0 border-4 border-primary/30 rounded-full scale-90 group-hover:scale-100 transition-all"></div>
+</div>
+</div>
+<!-- Tire 2 -->
+<div class="drag-handle group">
+<div class="w-24 h-24 bg-carbon rounded-full border-4 border-racing-gray flex items-center justify-center hover:scale-110 transition-transform tire-glow">
+<div class="w-10 h-10 bg-primary rounded-full flex items-center justify-center">
+<span class="material-icons text-white text-xl">favorite</span>
+</div>
+</div>
+</div>
+<!-- Tire 3 -->
+<div class="drag-handle group opacity-40">
+<div class="w-24 h-24 bg-carbon rounded-full border-4 border-racing-gray flex items-center justify-center cursor-not-allowed">
+<div class="w-10 h-10 bg-primary/40 rounded-full flex items-center justify-center">
+<span class="material-icons text-white/50 text-xl">favorite</span>
+</div>
+<div class="absolute -top-2 -right-2 bg-green-500 text-white rounded-full p-1">
+<span class="material-icons text-xs">check</span>
+</div>
+</div>
+</div>
+<!-- Tire 4 -->
+<div class="drag-handle group">
+<div class="w-24 h-24 bg-carbon rounded-full border-4 border-racing-gray flex items-center justify-center hover:scale-110 transition-transform tire-glow">
+<div class="w-10 h-10 bg-primary rounded-full flex items-center justify-center">
+<span class="material-icons text-white text-xl">favorite</span>
+</div>
+</div>
+</div>
+</div>
+<div class="text-center mt-6">
+<p class="text-xs font-bold uppercase tracking-widest text-carbon/40 dark:text-white/40">Drag and drop the heart tires to the axles</p>
+</div>
+</div>
+</footer>
+<!-- Side UI Elements -->
+<div class="fixed right-8 top-1/2 -translate-y-1/2 flex flex-col gap-4 z-40">
+<button class="w-12 h-12 bg-white dark:bg-carbon border border-primary/20 rounded-lg flex items-center justify-center hover:bg-primary hover:text-white transition-colors">
+<span class="material-icons">refresh</span>
+</button>
+<button class="w-12 h-12 bg-white dark:bg-carbon border border-primary/20 rounded-lg flex items-center justify-center hover:bg-primary hover:text-white transition-colors">
+<span class="material-icons">help_outline</span>
+</button>
+<button class="w-12 h-12 bg-white dark:bg-carbon border border-primary/20 rounded-lg flex items-center justify-center hover:bg-primary hover:text-white transition-colors">
+<span class="material-icons">volume_up</span>
+</button>
+</div>
+<!-- UI Overlay for Level Start (Hidden by default but structured here) -->
+<div class="hidden fixed inset-0 bg-carbon/90 backdrop-blur-sm z-[100] flex items-center justify-center">
+<div class="max-w-md w-full p-8 bg-white dark:bg-background-dark rounded-xl border-t-4 border-primary text-center">
+<h2 class="text-4xl font-black italic text-primary mb-2 italic uppercase">Level 1</h2>
+<h3 class="text-xl font-bold mb-6">The Tire Swap</h3>
+<p class="text-carbon/60 mb-8 font-medium">Your lover's McLaren is in the box. Fit the special Valentine Soft compound tires to get them back on track!</p>
+<button class="w-full bg-primary text-white font-black py-4 rounded-lg text-lg uppercase tracking-widest hover:brightness-110 active:scale-95 transition-all">
+                Start Pit Stop
+            </button>
+</div>
+</div>
+</body></html>
