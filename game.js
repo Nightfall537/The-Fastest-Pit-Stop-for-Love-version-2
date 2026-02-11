@@ -89,7 +89,7 @@ function resetLevel1UI() {
         t.classList.remove('placed');
         t.draggable = true;
     });
-    document.querySelectorAll('.drop-zone').forEach(dz => {
+    document.querySelectorAll('.wheel-slot').forEach(dz => {
         dz.classList.remove('filled', 'drag-over');
     });
     document.getElementById('l1-overlay').classList.add('active');
@@ -97,7 +97,7 @@ function resetLevel1UI() {
 
 function initDragAndDrop() {
     const tires = document.querySelectorAll('.tire-item');
-    const dropZones = document.querySelectorAll('.drop-zone');
+    const dropZones = document.querySelectorAll('.wheel-slot');
 
     tires.forEach(tire => {
         tire.addEventListener('dragstart', handleDragStart);
@@ -127,7 +127,7 @@ function handleDragStart(e) {
 
 function handleDragEnd(e) {
     this.style.opacity = '1';
-    document.querySelectorAll('.drop-zone').forEach(dz => dz.classList.remove('drag-over'));
+    document.querySelectorAll('.wheel-slot').forEach(dz => dz.classList.remove('drag-over'));
 }
 
 function handleDragOver(e) {
@@ -179,7 +179,7 @@ function handleTouchMove(e) {
     touchClone.style.top = (touch.clientY - 36) + 'px';
 
     // Highlight drop zone under finger
-    document.querySelectorAll('.drop-zone').forEach(dz => {
+    document.querySelectorAll('.wheel-slot').forEach(dz => {
         const rect = dz.getBoundingClientRect();
         if (touch.clientX >= rect.left && touch.clientX <= rect.right &&
             touch.clientY >= rect.top && touch.clientY <= rect.bottom) {
@@ -194,7 +194,7 @@ function handleTouchEnd(e) {
     if (!touchClone || !touchTire) return;
     const touch = e.changedTouches[0];
 
-    document.querySelectorAll('.drop-zone').forEach(dz => {
+    document.querySelectorAll('.wheel-slot').forEach(dz => {
         dz.classList.remove('drag-over');
         const rect = dz.getBoundingClientRect();
         if (touch.clientX >= rect.left && touch.clientX <= rect.right &&
@@ -221,10 +221,13 @@ function placeTire(tire, zone) {
         `${gameState.level1.tiresPlaced} / 4 Tires`;
 
     // Animate
-    zone.querySelector('.drop-zone-ring').style.transform = 'scale(1.2)';
-    setTimeout(() => {
-        zone.querySelector('.drop-zone-ring').style.transform = 'scale(1)';
-    }, 200);
+    const inner = zone.querySelector('.wheel-slot-inner');
+    if (inner) {
+        inner.style.transform = 'scale(1.2)';
+        setTimeout(() => {
+            inner.style.transform = 'scale(1)';
+        }, 200);
+    }
 
     // Check completion
     if (gameState.level1.tiresPlaced >= 4) {
@@ -462,7 +465,7 @@ function sharePodium() {
 
     if (navigator.share) {
         navigator.share({ title: 'The Fastest Pit Stop for Love', text: text })
-            .catch(() => {});
+            .catch(() => { });
     } else if (navigator.clipboard) {
         navigator.clipboard.writeText(text).then(() => {
             const btn = document.getElementById('btn-share');
