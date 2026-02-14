@@ -1,0 +1,207 @@
+/* React App Styles */
+html,
+body,
+#root {
+    width: 100%;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background: #1a1a1a;
+    font-family: 'Be Vietnam Pro', sans-serif;
+}
+
+.game-container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.canvas-wrapper {
+    flex: 1;
+    position: relative;
+    z-index: 1;
+    /* Under the UI */
+}
+
+/* Header */
+.game-header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 10;
+    pointer-events: none;
+    /* Let clicks pass */
+}
+
+.brand {
+    font-size: 1.5rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    color: #fff;
+    font-style: italic;
+    pointer-events: auto;
+    /* Allow selecting text */
+}
+
+.papaya {
+    color: #ff8000;
+}
+
+.tire-count {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #fff;
+    background: rgba(255, 128, 0, 0.2);
+    padding: 8px 16px;
+    border-radius: 8px;
+}
+
+/* Footer / Tire Dock */
+.footer-hud {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 32px;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 20;
+    pointer-events: none;
+    /* Container passes clicks */
+}
+
+.instruction {
+    color: rgba(255, 255, 255, 0.6);
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 16px;
+}
+
+.tire-dock {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    pointer-events: auto;
+    /* Enable dragging */
+}
+
+.tire-row {
+    display: flex;
+    gap: 24px;
+}
+
+.tire-draggable {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: grab;
+    transition: transform 0.2s;
+}
+
+.tire-draggable:hover {
+    transform: scale(1.1);
+}
+
+.tire-draggable:active {
+    cursor: grabbing;
+}
+
+/* Tire Appearance */
+.tire-soft-visual {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background: #222;
+    border: 4px solid #ff3b3b;
+    /* Red Soft stripe */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.rim-hub {
+    width: 24px;
+    height: 24px;
+    background: #ff8000;
+    /* Papaya hub */
+    border-radius: 50%;
+    border: 2px solid #555;
+}
+
+.tire-label {
+    margin-top: 8px;
+    font-size: 0.7rem;
+    font-weight: 800;
+    color: #888;
+    letter-spacing: 1px;
+}
+
+/* 3D Drop Zone Overlays (Specific to R3F Html) */
+.drop-zone-3d {
+    width: 60px;
+    height: 60px;
+    border: 2px dashed rgba(255, 128, 0, 0.6);
+    border-radius: 50%;
+    background: rgba(255, 128, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s;
+    pointer-events: auto;
+    /* Allow drop */
+    /* Centering handled by transform in component */
+}
+
+.drop-zone-3d.hover {
+    background: rgba(255, 128, 0, 0.4);
+    transform: scale(1.2);
+    border: 2px solid #ff8000;
+}
+
+.zone-indicator {
+    font-size: 24px;
+    color: #ff8000;
+    font-weight: bold;
+}
+
+/* Success State */
+.success-panel {
+    background: #ff8000;
+    color: #fff;
+    padding: 32px 48px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    box-shadow: 0 20px 50px rgba(255, 128, 0, 0.3);
+    pointer-events: auto;
+}
+
+.btn-next {
+    background: #fff;
+    color: #ff8000;
+    border: none;
+    padding: 12px 24px;
+    font-weight: 900;
+    text-transform: uppercase;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+}
