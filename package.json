@@ -1,0 +1,32 @@
+{
+  "name": "the-fastest-pit-stop-for-love",
+  "version": "1.0.0",
+  "description": "",
+  "main": "game.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://Nightfall537@github.com/Nightfall537/The-Fastest-Pit-Stop-for-Love-version-2.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Nightfall537/The-Fastest-Pit-Stop-for-Love-version-2/issues"
+  },
+  "homepage": "https://github.com/Nightfall537/The-Fastest-Pit-Stop-for-Love-version-2#readme",
+  "dependencies": {
+    "@react-three/drei": "^10.7.7",
+    "@react-three/fiber": "^9.5.0",
+    "@vitejs/plugin-react": "^5.1.4",
+    "framer-motion": "^12.34.0",
+    "lucide-react": "^0.564.0",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
+    "three": "^0.182.0",
+    "vite": "^7.3.1"
+  }
+}
